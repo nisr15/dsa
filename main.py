@@ -187,3 +187,4 @@ k=10
 longestSubarraySumBF1(l,k)
 longestSubarraySumBF2(l,k)
 longestSubarraySumBetter(l,k)
+longestSubarraySumOptimal(l,k)

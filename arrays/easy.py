@@ -457,7 +457,7 @@ def longestSubarraySumBF1(l,k):
                 s+=l[t]
             # print(s,k)
             if s==k:
-                print(l[i:j+1],[i, j])
+                # print(l[i:j+1],[i, j])
                 if j-i+1>maxlen:
                     maxlen = j - i + 1
                     ans=[i,j]
@@ -474,7 +474,7 @@ def longestSubarraySumBF2(l,k):
         for j in range(i + 1, n):
             s+=l[j]
             if s==k:
-                print(l[i:j+1],[i, j])
+                # print(l[i:j+1],[i, j])
                 if j - i + 1 > maxlen:
                     maxlen=j - i + 1
                     ans = [i, j]
@@ -517,14 +517,14 @@ def longestSubarraySumBetter(l,k):
     for i in range(n):
         s+=l[i]
         if s==k:
-            print(l[:i+1],[0,i])
+            # print(l[:i+1],[0,i])
             if maxlen<i+1:
                 maxlen = i+1
                 ans=[0,i]
         t=s-k
         if t in d:
             p=d[t]
-            print(l[p+1:i+1],sum(l[p+1:i+1]),[p+1,i])
+            # print(l[p+1:i+1],sum(l[p+1:i+1]),[p+1,i])
             if maxlen<i-p:
                 maxlen = i-p
                 ans=[p+1,i]
@@ -533,3 +533,26 @@ def longestSubarraySumBetter(l,k):
     print('final',ans,l[ans[0]:ans[1]+1])
 
 def longestSubarraySumOptimal(l,k):
+    n=len(l)
+    s=l[0]
+    low=0
+    high=1
+    maxlen=0
+    while high<n:
+        if s<k:
+            s+=l[high]
+            high+=1
+        elif s>k:
+            s-=l[low]
+            low+=1
+        else:
+            if high-low+1>maxlen:
+                maxlen=high-low+1
+                ans=[low,high-1]
+            s+=l[high]
+            high+=1
+    if s==k:
+        if high-low + 1 > maxlen:
+            maxlen = high - low + 1
+            ans = [low, high-1]
+    print('final',ans,l[ans[0]:ans[1]+1])
