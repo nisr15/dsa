@@ -7,6 +7,7 @@ from algorithms.dnf import *
 from algorithms.mooresVoting import *
 from algorithms.juggling import *
 from arrays.easy import *
+from arrays.medium import *
 from basicHashing.basicHashing import *
 from basicMath.basicMath import *
 from basicRecursion.basicRecursion import *
@@ -182,9 +183,22 @@ from sorting.sorting import *
 # numAppersOnceBetter2(l)
 # numAppersOnceOptimal(l)
 # l=[2,3,5,1,9]
-l=[1,8,2,3,5]
-k=10
-longestSubarraySumBF1(l,k)
-longestSubarraySumBF2(l,k)
-longestSubarraySumBetter(l,k)
-longestSubarraySumOptimal(l,k)
+# l=[1,8,2,3,5]
+# k=10
+# longestSubarraySumBF1(l,k)
+# longestSubarraySumBF2(l,k)
+# longestSubarraySumBetter(l,k)
+# longestSubarraySumOptimal(l,k)
+# l=[-1, 1, 1]
+# k=1
+# longestSubarraySumNegNumBF(l,k)
+# longestSubarraySumNegNumBetter(l,k)
+# longestSubarraySumNegNumOptimal(l,k)
+
+
+
+# #Medium
+l=[2,1,3,4]
+k=4
+sumOfTwoNumbersBF(l,k)
+sumOfTwoNumbersBetter(l,k)

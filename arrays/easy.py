@@ -508,6 +508,9 @@ def longestSubarraySumBF2(l,k):
 # Because the earlier that sum happened, the longer the possible group ending now will be.
 # Updating would overwrite that early clue and make the group shorter!
 
+#TC : O(N) - unordered map -- (worst case when we have mutiple colisions O(N*N)
+# O(NlogN) - ordered map
+#SC : O(N) -
 def longestSubarraySumBetter(l,k):
     n=len(l)
     s=0
@@ -532,6 +535,8 @@ def longestSubarraySumBetter(l,k):
             d[s]=i
     print('final',ans,l[ans[0]:ans[1]+1])
 
+#TC : O(N)
+#SC : O(1)
 def longestSubarraySumOptimal(l,k):
     n=len(l)
     s=l[0]
@@ -556,3 +561,66 @@ def longestSubarraySumOptimal(l,k):
             maxlen = high - low + 1
             ans = [low, high-1]
     print('final',ans,l[ans[0]:ans[1]+1])
+
+# Given an array and a sum k, we need to print the length of the longest subarray that sums to k.
+#TC : O(N*N*N) - each loop runs for N
+#SC : O(1)
+def longestSubarraySumNegNumBF(l,k):
+    n=len(l)
+    ans=[]
+    maxlen=0
+    for i in range(n):
+        for j in range(i+1,n):
+            s=0
+            for t in range(i,j+1):
+                s+=l[t]
+            # print(s,k)
+            if s==k:
+                # print(l[i:j+1],[i, j])
+                if j-i+1>maxlen:
+                    maxlen = j - i + 1
+                    ans=[i,j]
+    print('final',ans,l[ans[0]:ans[1]+1])
+
+#TC : O(N*N) - each loop runs for N , carry forward approach
+#SC : O(1)
+def longestSubarraySumNegNumBetter(l,k):
+    n = len(l)
+    ans = []
+    maxlen = 0
+    for i in range(n):
+        s=l[i]
+        for j in range(i + 1, n):
+            s+=l[j]
+            if s==k:
+                # print(l[i:j+1],[i, j])
+                if j - i + 1 > maxlen:
+                    maxlen=j - i + 1
+                    ans = [i, j]
+    print('final',ans, l[ans[0]:ans[1] + 1])
+
+#TC : O(N) - unordered map -- worst case when we have mutiple colisions O(N*N)
+# O(NlogN) - ordered map
+#SC : O(N) -
+def longestSubarraySumNegNumOptimal(l,k):
+    n=len(l)
+    s=0
+    maxlen=0
+    d={}
+    for i in range(n):
+        s+=l[i]
+        if s==k:
+            if maxlen<i+1:
+                maxlen=i + 1
+                ans=[0,i]
+        t=s-k
+        if t in d:
+            if maxlen<i-d[t]:
+                maxlen= i - d[t]
+                ans=[d[t]+1,i]
+        if s not in d:
+            d[s]=i
+    print('final', ans, l[ans[0]:ans[1] + 1])
+
+
+
