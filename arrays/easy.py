@@ -556,10 +556,13 @@ def longestSubarraySumOptimal(l,k):
                 ans=[low,high-1]
             s+=l[high]
             high+=1
-    if s==k:
-        if high-low + 1 > maxlen:
-            maxlen = high - low + 1
-            ans = [low, high-1]
+    while low<n and s>=k:
+        if s==k:
+            if high-low + 1 > maxlen:
+                maxlen = high - low + 1
+                ans = [low, high-1]
+        s -= l[low]
+        low += 1
     print('final',ans,l[ans[0]:ans[1]+1])
 
 # Given an array and a sum k, we need to print the length of the longest subarray that sums to k.
