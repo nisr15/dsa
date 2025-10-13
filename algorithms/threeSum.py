@@ -1,6 +1,6 @@
 #sum of three numbers in the given array is the target number
 
-from algorithms.twoSum import twoSum,twoSumBruteForce2
+# from algorithms.twoSum import twoSum,twoSumBruteForce2
 from algorithms.sortings import mergeSort
 
 #TC : O(n3) - 3 for loops

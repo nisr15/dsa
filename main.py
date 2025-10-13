@@ -198,8 +198,26 @@ from sorting.sorting import *
 
 
 # #Medium
-l=[2,1,3,4]
-k=4
-sumOfTwoNumbersBF(l,k)
-sumOfTwoNumbersBetter(l,k)
-sumOfTwoNumbersOptimal(l,k)
+# l=[2,1,3,4]
+# k=4
+# sumOfTwoNumbersBF(l,k)
+# sumOfTwoNumbersBetter(l,k)
+# sumOfTwoNumbersOptimal(l,k)
+# l=[2,0,1]
+# n=len(l)
+# print(sortingArrayOf012BF(l))
+# print(sortingArrayOf012Better(l,n))
+# print(sortingArrayOf012Optimal(l,n))
+# l=[2,2,1,1,1,2,2]
+# n=7
+# print(majorityEleBF(l,n))
+# print(majorityEleBetter1(l,n))
+# print(majorityEleBetter2(l,n))
+# print(majorityEleOptimal(l,n))
+l=[-2,1,-3,4,-1,2,1,-5,4]
+# l=[-2,-1,-3,-4]
+n=len(l)
+largestSumSubArrayBF(l,n)
+largestSumSubArrayBetter(l,n)
+largestSumSubArrayOptimal(l,n)
+largestSumSubArrayOptimalExtended(l,n)

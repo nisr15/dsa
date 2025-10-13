@@ -4,16 +4,17 @@ from algorithms.sortings import mergeSort
 from algorithms.search import binarySearch
 
 
-#TC : O(n2) - two for loops ,loop within loop
+#TC : O(n*n) - two for loops ,loop within loop
+#SC :O(1)
 def twoSumBruteForce(arr,arrlen,target):
     for i in range(arrlen):
         for j in range(i+1,arrlen):
             if(arr[i]+arr[j]==target):
                 return (i,j)
-
     return ()
 
 #TC : O(nlogn+n)  - nlogn-merge sorting , n -two pointers
+#SC :O(1)
 def twoSumBruteForce2(arr,arrlen,target):
     i=0
     j=arrlen-1
@@ -41,7 +42,7 @@ def twoSumBruteForce2(arr,arrlen,target):
 #     return ()
 
 #TC : O(nlogn+nlogn) - nlogn - for merge sort ,n for iteration , logn for binarys earch
-def twoSum(arr,arrlen,target):
+def twoSumBruteForce2(arr,arrlen,target):
     for i in range(arrlen):
         k=target-arr[i]
         ans=binarySearch(arr,k)
@@ -50,7 +51,7 @@ def twoSum(arr,arrlen,target):
     return
 
 
-# def twoSum(arr,arrlen,target):
+# def twoSum123(arr,arrlen,target):
 #     #when given parameter arr is unsorted
 #     sortedArr = mergeSort(arr, 0, arrlen - 1)
 #     for i in range(arrlen):
