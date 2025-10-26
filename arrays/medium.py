@@ -260,3 +260,72 @@ def stockBuyAndSellOptimal(arr,arrLen):
     print(maxProf)
 
 
+#There’s an array ‘A’ of size ‘N’ with an equal number of positive and negative elements.
+# Without altering the relative order of positive and negative elements, you must return an array of alternately positive and negative values.
+#Note: Start the array with positive elements.
+
+#TC:O(N+N), N - for populating arrays , N - for changing the array
+#SC:O(N), N - pos + neg storing arrays
+def rearrangeArrayEleBySignBF(arr,arrLen):
+    pos=[]
+    neg=[]
+    for i in range(arrLen):
+        if arr[i]<0:
+            neg.append(arr[i])
+        else:
+            pos.append(arr[i])
+    i=0
+    j=0
+    for k in range(arrLen):
+        if k%2:
+            arr[k]=neg[i]
+            i+=1
+        else:
+            arr[k]=pos[j]
+            j+=1
+
+#TC:O(N), N - traversing the array once and substituting positives and negatives simultaneously using pointers
+#SC:O(N), N - storing the rearranged array
+def rearrangeArrayEleBySignOptimal(arr,arrLen):
+    ans=[0]*arrLen
+    j=0
+    k=1
+    for i in range(arrLen):
+        if arr[i]<0:
+            ans[k]=arr[i]
+            k+=2
+        else:
+            ans[j]=arr[i]
+            j+=2
+
+
+# Type2
+# Same as above ,The leftover elements should be placed at the very end in the same order as in array A.
+
+#TC:O(N+N), N - for populating arrays , N - for changing the array
+#SC:O(N), N - pos + neg storing arrays
+def rearrangeArrayEleBySignType2BF(arr,arrLen):
+    pos=[]
+    neg=[]
+    for i in range(arrLen):
+        if arr[i]<0:
+            neg.append(arr[i])
+        else:
+            pos.append(arr[i])
+    i=0
+    j=0
+    k=0
+    while i<len(neg) and j<len(pos):
+        if k%2:
+            arr[k]=neg[i]
+            i+=1
+        else:
+            arr[k]=pos[j]
+            j+=1
+        k+=1
+    for p in range(i,len(neg)):
+        arr[k]=neg[p]
+        k+=1
+    for p in range(j,len(pos)):
+        arr[k]=pos[p]
+        k+=1
