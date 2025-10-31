@@ -283,6 +283,7 @@ def rearrangeArrayEleBySignBF(arr,arrLen):
         else:
             arr[k]=pos[j]
             j+=1
+    print(arr)
 
 #TC:O(N), N - traversing the array once and substituting positives and negatives simultaneously using pointers
 #SC:O(N), N - storing the rearranged array
@@ -297,6 +298,7 @@ def rearrangeArrayEleBySignOptimal(arr,arrLen):
         else:
             ans[j]=arr[i]
             j+=2
+    print(ans)
 
 
 # Type2
@@ -329,3 +331,162 @@ def rearrangeArrayEleBySignType2BF(arr,arrLen):
     for p in range(j,len(pos)):
         arr[k]=pos[p]
         k+=1
+    print(arr)
+
+
+def nextPermutation(arr,arrLen):
+    pass
+
+# TC: O(N*N) - 2 for loops
+# SC : O(N) - for storing ans
+def leadersInArrayBF(arr,arrLen):
+    ans=[]
+    for i in range(arrLen):
+        f=0
+        for j in range(i+1,arrLen):
+            if arr[i]<arr[j]:
+                f=1
+                break
+        if f==0:
+            ans.append(arr[i])
+    print(ans)
+
+# TC: O(N) - for loop
+# SC : O(N) - for storing ans
+def leadersInArrayOptimal(arr,arrLen):
+    ans=[arr[arrLen-1]]
+    for i in range(arrLen-1,-1,-1):
+        if (arr[i]>ans[-1]):
+            ans.append(arr[i])
+    print(ans)
+
+
+# You are given an array of ‘N’ integers.
+# You need to find the length of the longest sequence which contains the consecutive elements.
+
+#TC : O(N*N*N) N - for loop , N - checking for i+1 of each element , N - for linear search
+# SC : O(1)
+def longConsSeqinArrBF(arr,arrLen):
+    ans=1
+    def linearsearch(r):
+        for i in arr:
+            if r==i:
+                return r
+        return None
+
+    for i in arr:
+        c=1
+        k=i
+        while(linearsearch(k+1)!=None):
+            c+=1
+            k+=1
+        ans=max(c,ans)
+    print(ans)
+    return ans
+
+# TC : O(NlogN + N)  - NlogN - sorting , N - for loop
+# SC : O(1)
+def longConsSeqinArrBetter(arr,arrLen):
+    arr.sort()
+    if arrLen==0:
+        return 0
+    c=1
+    ans=1
+    for i in range(1,arrLen):
+        if arr[i]-arr[i-1]==1:
+            c+=1
+        elif arr[i]==arr[i-1]:
+            pass
+        else:
+            ans=max(c,ans)
+            c=1
+    ans = max(c, ans)
+    print(ans)
+    return ans
+
+# TC: O(N+N+N) N - for populating set , N - for loop , N - for while (for overall ele in array while sums up to N)
+#SC : O(N)
+def longConsSeqinArrOptimal(arr,arrLen):
+    s=set(arr)
+    ans=1
+    for i in arr:
+        if i-1 not in s:
+            c=1
+            k=i+1
+            while k in s:
+                c+=1
+                k+=1
+            ans=max(ans,c)
+    print(ans)
+    return ans
+
+#Given a matrix if an element in the matrix is 0 then you will have to set its entire column and row to 0 and then return the matrix.
+
+#TC : O((N*M)+(N*M))  - (N*M) - 2 for loops , (N*M) - worst case if all zeros all will be added to l
+#SC : O(N*M) - (N*M) - worst case if all zeros l will be (N*M)
+def setMarixZeroBF(arr,n,m):
+    l=[]
+    for i in range(n):
+        for j in range(m):
+            if arr[i][j]==0:
+                l.append([i,j])
+    # print(l)
+    for i in l:
+        for _ in range(n):
+            arr[_][i[1]]=0
+        for _ in range(m):
+            arr[i[0]][_]=0
+    print(arr)
+
+#TC : O((N*M)+(N*M))  - (N*M) - 2 for loops , (N*M) - 2 for loops
+#SC : O(N+M) - N for rows and M for col
+def setMarixZeroBetter(arr,n,m):
+    row = [0] * n
+    col = [0] * m
+    # print(arr)
+    for i in range(n):
+        for j in range(m):
+            if arr[i][j] == 0:
+                row[i] = 1
+                col[j] = 1
+    # print(row,col)
+    for i in range(n):
+        for j in range(m):
+            if row[i] or col[j]:
+                arr[i][j] = 0
+    print(arr)
+
+#TC : O((N*M)+(N*M))  - (N*M) - 2 for loops , (N*M) - 2 for loops
+#SC : O(1) - constant or no space used
+
+#Using 1st row of array as col arr and 1st col of array as row arr as we used in better approach
+#And at (0,0) row and col array clash , lets use col0 var to store col0 state
+def setMarixZeroOptimal(arr,n,m):
+    col0=1
+    #stores the row,col array as we did in better approch
+    for i in range(n):
+        for j in range(m):
+            if arr[i][j] == 0:
+                arr[i][0]=0
+                if j==0:
+                    col0=0
+                else:
+                    arr[0][j]=0
+
+    # print(arr)
+    #now iterates over matrix from 1st row and 1st col (1,1) as before index are used for storing values
+    for i in range(1,n):
+        for j in range(1,m):
+            if arr[i][0]==0 or arr[0][j]==0:
+                arr[i][j]=0
+
+    #to fix the missed 0th row and 0th col of matrix
+    if arr[0][0]==0:
+        for j in range(m):
+            arr[0][j]=0
+    if col0==0:
+        for i in range(n):
+            arr[i][0]=0
+    print(arr)
+
+

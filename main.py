@@ -214,10 +214,41 @@ from sorting.sorting import *
 # print(majorityEleBetter1(l,n))
 # print(majorityEleBetter2(l,n))
 # print(majorityEleOptimal(l,n))
-l=[-2,1,-3,4,-1,2,1,-5,4]
+# l=[-2,1,-3,4,-1,2,1,-5,4]
 # l=[-2,-1,-3,-4]
+# n=len(l)
+# largestSumSubArrayBF(l,n)
+# largestSumSubArrayBetter(l,n)
+# largestSumSubArrayOptimal(l,n)
+# largestSumSubArrayOptimalExtended(l,n)
+# l=[1,2,-3,-1,-2,3]
+# n=len(l)
+# rearrangeArrayEleBySignBF(l,n)
+# rearrangeArrayEleBySignOptimal(l,n)
+# l=[1,2,4,-4,-5,3]
+# n=len(l)
+# rearrangeArrayEleBySignType2BF(l,n)
+# l=[1,2,3]
+# n=len(l)
+# nextPermutation(l,n)
+# l=[10, 22, 12, 3, 0, 6]
+# n=len(l)
+# leadersInArrayBF(l,n)
+# leadersInArrayOptimal(l,n)
+# l=[9,1,4,7,3,-1,0,5,8,-1,6]
+# n=len(l)
+# longConsSeqinArrBF(l,n)
+# longConsSeqinArrBetter(l,n)
+# longConsSeqinArrOptimal(l,n)
+l=[[0,1,2,0],[3,4,5,2],[1,3,1,5]]
 n=len(l)
-largestSumSubArrayBF(l,n)
-largestSumSubArrayBetter(l,n)
-largestSumSubArrayOptimal(l,n)
-largestSumSubArrayOptimalExtended(l,n)
+m=len(l[0])
+setMarixZeroBF(l,n,m)
+l=[[0,1,2,0],[3,4,5,2],[1,3,1,5]]
+n=len(l)
+m=len(l[0])
+setMarixZeroBetter(l,n,m)
+l=[[0,1,2,0],[3,4,5,2],[1,3,1,5]]
+n=len(l)
+m=len(l[0])
+setMarixZeroOptimal(l,n,m)
