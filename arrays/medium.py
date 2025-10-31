@@ -490,3 +490,55 @@ def setMarixZeroOptimal(arr,n,m):
     print(arr)
 
 
+#Given a matrix, your task is to rotate the matrix 90 degrees clockwise.
+
+#TC : O(N*N) - 2 for loop
+#SC : O(N*N)
+def rotateMatrix90BF(arr,n):
+    l=[[0 for _ in range(n)] for _ in range(n)]
+    for i in range(n):
+        for j in range(n):
+            l[j][n-1-i]=arr[i][j]
+    print(l)
+
+#TC : O((N/2)*(N/2)) - 2 for loop
+#SC : O(1)
+#Below is optimal , but complex to understand and debug so not prefered mostly
+def rotateMatrix90Optimal1(arr,n):
+    n = len(arr)
+    # Process the matrix layer by layer
+    for layer in range(n // 2):
+        first = layer
+        last = n - 1 - layer
+        for i in range(first, last):
+            offset = i - first
+
+            # Save top element
+            top = arr[first][i]
+
+            # Move left -> top
+            arr[first][i] = arr[last - offset][first]
+
+            # Move bottom -> left
+            arr[last - offset][first] = arr[last][last - offset]
+
+            # Move right -> bottom
+            arr[last][last - offset] = arr[i][last]
+
+            # Move top -> right
+            arr[i][last] = top
+    print(arr)
+
+#TC : O((N/2)*(N/2)) - 2 for loop
+#SC : O(1)
+def rotateMatrix90Optimal2(arr,n):
+    for i in range(n):
+        for j in range(i,n):
+            arr[i][j],arr[j][i]=arr[j][i],arr[i][j]
+    for i in range(n):
+        arr[i].reverse()
+    print(arr)
+
+
+
+

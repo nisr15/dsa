@@ -240,15 +240,22 @@ from sorting.sorting import *
 # longConsSeqinArrBF(l,n)
 # longConsSeqinArrBetter(l,n)
 # longConsSeqinArrOptimal(l,n)
-l=[[0,1,2,0],[3,4,5,2],[1,3,1,5]]
+# l=[[0,1,2,0],[3,4,5,2],[1,3,1,5]]
+# n=len(l)
+# m=len(l[0])
+# setMarixZeroBF(l,n,m)
+# l=[[0,1,2,0],[3,4,5,2],[1,3,1,5]]
+# n=len(l)
+# m=len(l[0])
+# setMarixZeroBetter(l,n,m)
+# l=[[0,1,2,0],[3,4,5,2],[1,3,1,5]]
+# n=len(l)
+# m=len(l[0])
+# setMarixZeroOptimal(l,n,m)
+l=[[1,2,3],[4,5,6],[7,8,9]]
 n=len(l)
-m=len(l[0])
-setMarixZeroBF(l,n,m)
-l=[[0,1,2,0],[3,4,5,2],[1,3,1,5]]
+rotateMatrix90BF(l,n)
+rotateMatrix90Optimal1(l,n)
+l=[[1,2,3],[4,5,6],[7,8,9]]
 n=len(l)
-m=len(l[0])
-setMarixZeroBetter(l,n,m)
-l=[[0,1,2,0],[3,4,5,2],[1,3,1,5]]
-n=len(l)
-m=len(l[0])
-setMarixZeroOptimal(l,n,m)
+rotateMatrix90Optimal2(l,n)
