@@ -490,7 +490,7 @@ def setMarixZeroOptimal(arr,n,m):
     print(arr)
 
 
-#Given a matrix, your task is to rotate the matrix 90 degrees clockwise.
+#Given a matrix, your task is to rotate the arr 90 degrees clockwise.
 
 #TC : O(N*N) - 2 for loop
 #SC : O(N*N)
@@ -540,5 +540,29 @@ def rotateMatrix90Optimal2(arr,n):
     print(arr)
 
 
+#Given a Matrix, print the given matrix in spiral order.
+def spiralMatrix(arr,n,m):
+    l = []
+    top = 0
+    left = 0
+    right = m - 1
+    bottom = n - 1
+    while (top <= bottom and left <= right):
+        print(top, bottom, left, right)
+        for j in range(left, right + 1):
+            l.append(arr[top][j])
+        top += 1
+        for i in range(top, bottom + 1):
+            l.append(arr[i][right])
+        right -= 1
+        if (top <= bottom):
+            for j in range(right, left - 1, -1):
+                l.append(arr[bottom][j])
+        bottom -= 1
+        if (left <= right):
+            for i in range(bottom, top - 1, -1):
+                l.append(arr[i][left])
+        left += 1
+    return l
 
 

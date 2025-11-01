@@ -252,10 +252,17 @@ from sorting.sorting import *
 # n=len(l)
 # m=len(l[0])
 # setMarixZeroOptimal(l,n,m)
-l=[[1,2,3],[4,5,6],[7,8,9]]
+# l=[[1,2,3],[4,5,6],[7,8,9]]
+# n=len(l)
+# rotateMatrix90BF(l,n)
+# rotateMatrix90Optimal1(l,n)
+# l=[[1,2,3],[4,5,6],[7,8,9]]
+# n=len(l)
+# rotateMatrix90Optimal2(l,n)
+l=[[1, 2, 3, 4 ],
+   [ 5, 6, 7, 8 ],
+   [9, 10, 11, 12 ],
+   [ 13, 14, 15, 16]]
 n=len(l)
-rotateMatrix90BF(l,n)
-rotateMatrix90Optimal1(l,n)
-l=[[1,2,3],[4,5,6],[7,8,9]]
-n=len(l)
-rotateMatrix90Optimal2(l,n)
+m=len(l[0])
+spiralMatrix(l,n,m)
