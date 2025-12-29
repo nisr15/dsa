@@ -7,6 +7,7 @@ from algorithms.dnf import *
 from algorithms.mooresVoting import *
 from algorithms.juggling import *
 from arrays.easy import *
+from arrays.hard import *
 from arrays.medium import *
 from basicHashing.basicHashing import *
 from basicMath.basicMath import *
@@ -259,10 +260,25 @@ from sorting.sorting import *
 # l=[[1,2,3],[4,5,6],[7,8,9]]
 # n=len(l)
 # rotateMatrix90Optimal2(l,n)
-l=[[1, 2, 3, 4 ],
-   [ 5, 6, 7, 8 ],
-   [9, 10, 11, 12 ],
-   [ 13, 14, 15, 16]]
-n=len(l)
-m=len(l[0])
-spiralMatrix(l,n,m)
+# l=[[1, 2, 3, 4 ],
+#    [ 5, 6, 7, 8 ],
+#    [9, 10, 11, 12 ],
+#    [ 13, 14, 15, 16]]
+# n=len(l)
+# m=len(l[0])
+# print(spiralMatrix(l,n,m))
+# l=[3, 1, 2, 4]
+# k=6
+# n=len(l)
+# print(noSubArrayBruteForce(l,n,k))
+# print(noSubArrayBetter(l,n,k))
+# print(noSubArrayOptimal(l,n,k))
+
+
+
+
+
+# #Hard
+n=5
+print(nthLineOfPascalTriangleBruteForce(n))
+print(nthLineOfPascalTriangleOptimal(n))

@@ -548,7 +548,6 @@ def spiralMatrix(arr,n,m):
     right = m - 1
     bottom = n - 1
     while (top <= bottom and left <= right):
-        print(top, bottom, left, right)
         for j in range(left, right + 1):
             l.append(arr[top][j])
         top += 1
@@ -558,11 +557,63 @@ def spiralMatrix(arr,n,m):
         if (top <= bottom):
             for j in range(right, left - 1, -1):
                 l.append(arr[bottom][j])
+            print(l)
         bottom -= 1
         if (left <= right):
             for i in range(bottom, top - 1, -1):
                 l.append(arr[i][left])
         left += 1
     return l
+
+
+#Given an array of integers and an integer k, return the total number of subarrays whose sum equals k
+#TC: O(N*N*N)
+#SC: O(1)
+def noSubArrayBruteForce(l,n,k):
+    c=0
+    for i in range(n):
+        for j in range(i+1,n+1):
+            s=0
+            for r in range(i,j):
+                s+=l[r]
+            if s==k:
+                c+=1
+                # print(s,i,j)
+    return c
+
+#TC: O(N*N)
+#SC: O(1)
+def noSubArrayBetter(l,n,k):
+    c = 0
+    for i in range(n):
+        s=0
+        for j in range(i, n):
+            s+=l[j]
+            if s==k:
+                c+=1
+    return c
+
+
+# TC : O(N)
+#SC : O(N)
+def noSubArrayOptimal(l,n,k):
+    s=0
+    c=0
+    t={}
+    t[0]=1
+    for i in range(n):
+        s+=l[i]
+        if s==k:
+            c+=1
+        r=s-k
+        if r in t.keys():
+            c+=t[r]
+        t[r]=t.get(r,0)+1
+    return c
+
+
+
+
+
 
 
