@@ -276,9 +276,16 @@ from sorting.sorting import *
 
 
 
-
-
 # #Hard
-n=5
-print(nthLineOfPascalTriangleBruteForce(n))
-print(nthLineOfPascalTriangleOptimal(n))
+# n=5
+# print(nthLineOfPascalTriangleBruteForce(n))
+# print(nthLineOfPascalTriangleOptimal(n))
+# nums= [1, 2, 1, 1, 3, 2, 2]
+# print(eleMoreThanBruteForce(nums))
+# print(eleMoreThann3Better(nums))
+# print(eleMoreThann3Optimal(nums))
+l=[-1,0,1,2,-1,-4]
+n=len(l)
+print(threeSumBruteForce(l,n))
+print(threeSumBetter(l,n))
+print(threeSumOptimal(l,n))
