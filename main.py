@@ -284,8 +284,39 @@ from sorting.sorting import *
 # print(eleMoreThanBruteForce(nums))
 # print(eleMoreThann3Better(nums))
 # print(eleMoreThann3Optimal(nums))
-l=[-1,0,1,2,-1,-4]
+# l=[-1,0,1,2,-1,-4]
+# n=len(l)
+# print(threeSumBruteForce(l,n))
+# print(threeSumBetter(l,n))
+# print(threeSumOptimal(l,n))
+# l=[1,0,-1,0,-2,2]
+# target=0
+# print(fourSumBruteforce(l,target))
+# print(fourSumBetter(l,target))
+# print(fourSumOptimal(l,target))
+# l=[9, -3, 3, -1, 6, -5]
+# n=len(l)
+# print(largestSubArraySumWithZeroBruteforce(l,n))
+# print(largestSubArraySumWithZeroOptimal(l,n))
+# l=[4, 2, 2, 6, 4]
+# target=6
+# print(noOfSubarraysHavingBitwiseXORBruteforce(l,target))
+# print(noOfSubarraysHavingBitwiseXOROptimal(l,target))
+# l=[[1,3],[2,6],[8,10],[15,18]]
+# print(mergeIntervalsBetter(l))
+# print(mergeIntervalsBetter2(l))
+# print(mergeIntervalsOptimal(l))
+# nums1 = [-5, -2, 4, 5, 0, 0, 0]
+# nums2 = [-3, 1, 8]
+# m=4
+# n=3
+# print(mergeTwoSortedArraysWithoutExtraSpace(nums1,nums2,m,n))
+# l=[3, 5, 4, 1, 1]
+# print(repeatingAndMissingNumbersBruteforce(l))
+# print(repeatingAndMissingNumbersBetter(l))
+# print(repeatingAndMissingNumbersBetter2(l))
+# print(repeatingAndMissingNumbersOptimal(l))
+# print(repeatingAndMissingNumbersOptimal2(l))
+l=[5,3,2,1,4]
 n=len(l)
-print(threeSumBruteForce(l,n))
-print(threeSumBetter(l,n))
-print(threeSumOptimal(l,n))
+print(countInversion(l,n))
