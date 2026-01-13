@@ -478,10 +478,106 @@ def repeatingAndMissingNumbersOptimal2(l):
 
 #Given an array of N integers, count the inversion of the array (using merge-sort).
 
-def countInversion(l,n):
+# TC : O(N*N)
+# SC : O(1)
+def countInversionBruteforce(l,n):
     c=0
     for i in range(n):
         for j in range(i+1,n):
             if l[i]>l[j]:
                 c+=1
     return c
+
+# TC : O(NlogN)
+# SC : O(N)
+def countInversionOptimal(l,n):
+    def mergeSort(l,low,high):
+        cnt=0
+        if low<high:
+            mid=(low+high)//2
+            cnt+=mergeSort(l,low,mid)
+            cnt+=mergeSort(l,mid+1,high)
+            cnt+=merge(l,low,mid,high)
+        return cnt
+
+    def merge(l,low,mid,high):
+        i=low
+        j=mid+1
+        k=[]
+        cnt=0
+        while i<=mid and j<=high:
+            if l[i]<=l[j]:
+                k.append(l[i])
+                i+=1
+            if l[i]>l[j]:
+                cnt+=(mid-i+1)
+                k.append(l[j])
+                j+=1
+        while i<=mid:
+            k.append(l[i])
+            i+=1
+        while j<=high:
+            k.append(l[j])
+            j+=1
+        for i in range(low,high+1):
+            l[i]=k[i-low]
+        return cnt
+    return mergeSort(l,0,n-1)
+
+
+#return the count of reverse pairs. Reverse Pairs are those pairs where i<j and arr[i]>2*arr[j]
+
+# TC : O(N*N)
+# SC : O(1)
+def countReverseBruteforce(l,n):
+    c=0
+    for i in range(n):
+        for j in range(i+1,n):
+            if l[i]>2*l[j]:
+                c+=1
+    return c
+
+def countReverseOptimal(nums,n):
+    n = len(nums)
+
+    def mergeSort(nums, low, high):
+        cnt = 0
+        if low < high:
+            mid = (low + high) // 2
+            cnt += mergeSort(nums, low, mid)
+            cnt += mergeSort(nums, mid + 1, high)
+            cnt += cntNum(nums, low, mid, high)
+            merge(nums, low, mid, high)
+        return cnt
+
+    def cntNum(nums, low, mid, high):
+        i = low
+        j = mid + 1
+        cnt = 0
+        for i in range(low, mid + 1):
+            while j <= high and nums[i] > 2 * nums[j]:
+                j += 1
+            cnt += (j - (mid + 1))
+        return cnt
+
+    def merge(nums, low, mid, high):
+        i = low
+        j = mid + 1
+        k = []
+        while i <= mid and j <= high:
+            if nums[i] <= nums[j]:
+                k.append(nums[i])
+                i += 1
+            if nums[i] > nums[j]:
+                k.append(nums[j])
+                j += 1
+        while i <= mid:
+            k.append(nums[i])
+            i += 1
+        while j <= high:
+            k.append(nums[j])
+            j += 1
+        for i in range(low, high + 1):
+            nums[i] = k[i - low]
+
+    return mergeSort(nums, 0, n - 1)

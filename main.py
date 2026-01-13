@@ -12,6 +12,7 @@ from arrays.medium import *
 from basicHashing.basicHashing import *
 from basicMath.basicMath import *
 from basicRecursion.basicRecursion import *
+from binarySearch.bsOnOneDimension import *
 from sorting.sorting import *
 
 # l=list(map(int,input().split()))
@@ -317,6 +318,56 @@ from sorting.sorting import *
 # print(repeatingAndMissingNumbersBetter2(l))
 # print(repeatingAndMissingNumbersOptimal(l))
 # print(repeatingAndMissingNumbersOptimal2(l))
-l=[5,3,2,1,4]
-n=len(l)
-print(countInversion(l,n))
+# l=[5,3,2,1,4]
+# n=len(l)
+# print(countInversionBruteforce(l,n))
+# print(countInversionOptimal(l,n))
+# l=[2,4,3,5,1]
+# n=len(l)
+# print(countReverseBruteforce(l,n))
+# print(countReverseOptimal(l,n))
+
+
+# #binary search
+# l=[1,3,6,7,10,12]
+# print(binarySearchIterative(l,4))
+# print(binarySearchRecurssive(l,4))
+# l=[1,2,2,3]
+# r=3
+# print(lowerBoundBruteforce(l,r))
+# print(lowerBoundOptimal(l,r))
+# l=[1,2,2,3]
+# r=1
+# print(upperBoundBruteforce(l,r))
+# print(upperBoundOptimal(l,r))
+# l=[1,2,4,7]
+# r=3
+# print(searchInsertPos(l,r))
+# l=[3, 4, 4, 7, 8, 10]
+# r=9
+# print(findFloorCeil(l,r))
+# l=[3, 4, 13, 13, 13,13,13,13, 20, 40]
+# r=13
+# print(firstLastOccuranceBruteforce(l,r))
+# print(firstLastOccuranceOptimal(l,r))
+# print(countOccuranceBruteforce(l,r))
+# print(countOccuranceOptimal(l,r))
+# l=[4,5,6,7,0,1,2]
+# r=0
+# print(sortedRotatedArrayoneBruteforce(l,r))
+# print(sortedRotatedArrayoneOptimal(l,r))
+# l=[1,0,1,1,1]
+# r=0
+# print(sortedRotatedArrayTwoBruteforce(l,r))
+# print(sortedRotatedArrayTwoOptimal(l,r))
+# l=[3,1,2]
+# print(findMinEleBruteforce(l))
+# print(findMinEleOptimal(l))
+# print(findMinEleOptimaltwo(l))
+# l=[1,1,2,3,3,4,4,8,8]
+# print(singleNumberBrutforce(l))
+# print(singleNumberBetter(l))
+# print(singleNumberOptimal(l))
+l=[1,2,1,3,5,6,4]  # here we have 2 peaks at index 1 and 5
+print(findPeakBruteforce(l))
+print(findPeakOptimal(l))
